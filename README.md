@@ -116,6 +116,7 @@ If you notice any issues with the transcripts or metadata, please open an issue 
 ## Projects Built with These Transcripts
 
 Here are some projects that have been built using this transcript archive:
+**[Lenny Playbook](https://lilys.ai/collections/141200?s=1) ** by LilysAI – Turns Lenny Podcast transcripts into structured notes, visual infographics, and a chat interface to explore ideas and get actionable answers.
 
 **[Learn from Lenny](https://x.com/learnfromlenny)** by [@IamAdiG](https://x.com/IamAdiG) - An AI agent on X that provides credible product advice based on Lenny's podcasts. Tag it to get spot-on advice with no fluff.
 
