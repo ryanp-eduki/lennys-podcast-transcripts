@@ -135,6 +135,8 @@ Here are some projects that have been built using this transcript archive:
 
 **[Lenny Gallery](https://lennygallery.manus.space/)** by Alan Chan - An infographic gallery with visual summaries of key episodes, built with Manus AI.
 
+**[Lenny's Friends in Notion](https://lnkd.in/gtEdP5ew)** by Saya Iwasaki - turned Lenny's guests into Notion mentors, so now you can ask anything you want & get feedback from them right in your Notion workspace. Each guest has a persona set up with mental models, frameworks & communication styles; you can also query by companies.
+
 Have you built something with these transcripts? Open a PR to add your project to this list!
 
 ## Disclaimer
