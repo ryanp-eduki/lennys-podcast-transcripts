@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenny's Podcast Transcripts - Interactive Browser</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎙️ Lenny's Podcast Transcripts</h1>
+            <p class="subtitle">Searchable archive of <span id="episode-count">303</span> episodes</p>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="search-section">
+                    <h3>Search</h3>
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search episodes, guests, topics..."
+                        autocomplete="off"
+                    >
+                    <div id="search-stats" class="search-stats"></div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Filter by Topic</h3>
+                    <div class="sort-controls">
+                        <label>
+                            <input type="radio" name="sort" value="views" checked>
+                            Most Viewed
+                        </label>
+                        <label>
+                            <input type="radio" name="sort" value="duration">
+                            Longest
+                        </label>
+                        <label>
+                            <input type="radio" name="sort" value="title">
+                            A-Z
+                        </label>
+                    </div>
+
+                    <div id="keyword-filters" class="keyword-filters">
+                        <!-- Keywords will be dynamically loaded here -->
+                    </div>
+                </div>
+
+                <div class="ai-toggle-section">
+                    <button id="toggle-ai-chat" class="ai-toggle-btn">
+                        💬 Open AI Chat
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Episode List -->
+            <section class="episode-list-container">
+                <div id="episode-list" class="episode-list">
+                    <!-- Episodes will be dynamically loaded here -->
+                </div>
+            </section>
+
+            <!-- Episode Detail View -->
+            <section id="episode-detail" class="episode-detail hidden">
+                <div class="detail-header">
+                    <button id="close-detail" class="close-btn">← Back to List</button>
+                </div>
+                <div id="episode-content" class="episode-content">
+                    <!-- Episode details will be loaded here -->
+                </div>
+            </section>
+        </div>
+
+        <!-- AI Chat Panel (Initially Hidden) -->
+        <aside id="ai-chat-panel" class="ai-chat-panel hidden">
+            <div class="chat-header">
+                <h3>💬 AI Chat</h3>
+                <button id="close-chat" class="close-btn-small">✕</button>
+            </div>
+
+            <div class="chat-config">
+                <label for="api-key-input">API Key:</label>
+                <input
+                    type="password"
+                    id="api-key-input"
+                    placeholder="Enter your Claude/OpenAI API key"
+                    autocomplete="off"
+                >
+                <select id="api-provider">
+                    <option value="claude">Claude (Anthropic)</option>
+                    <option value="openai">OpenAI</option>
+                </select>
+                <small>Your API key is stored locally in your browser</small>
+            </div>
+
+            <div id="chat-messages" class="chat-messages">
+                <div class="chat-message system">
+                    <p>Welcome! I can help you search and understand the podcast transcripts.</p>
+                    <p>Try asking: "What does Brian Chesky say about product management?" or "Summarize the key points about growth strategies"</p>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <textarea
+                    id="chat-input"
+                    placeholder="Ask a question about the transcripts..."
+                    rows="3"
+                ></textarea>
+                <button id="send-chat" class="send-btn">Send</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script src="search.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
